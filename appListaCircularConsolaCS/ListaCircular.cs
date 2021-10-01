@@ -65,6 +65,45 @@ namespace appListaCircularConsolaCS
 
       //
     }
+    public void Eliminar(int d)
+    {
+      if (head==null)
+      {
+        return;
+      }
+      Nodo h = head;
+      if (head.Numero==d)
+      {
+        if (head.Siguiente == head)
+        {
+          head = null;
+          return;
+        }
+        while (h.Siguiente != head)
+        {
+          h = h.Siguiente;
+        }
+        h.Siguiente = head.Siguiente;
+        head = head.Siguiente;
+        return;
+      }
+      
+      while (h.Siguiente != head)
+      {
+        if (h.Siguiente .Numero==d)
+        {
+          break;
+        }
+        h = h.Siguiente;
+      }
+      if (h.Siguiente != head )
+      {
+        h.Siguiente = h.Siguiente.Siguiente;
+      }    
+    }
+
+
+
     public override string ToString()
     {
       string lista = "Nodos:\n ";

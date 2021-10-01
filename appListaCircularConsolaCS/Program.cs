@@ -28,6 +28,9 @@ namespace appListaCircularConsolaCS
       nuevo = new Nodo(5, "n3");
       lc.Agregar(nuevo);
       Console.WriteLine(lc.ToString());
+
+      lc.Eliminar(1);
+      Console.WriteLine(lc.ToString());
       Console.ReadKey();
     }
   }
