@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace appListaCircularConsolaCS
 {
@@ -31,6 +27,10 @@ namespace appListaCircularConsolaCS
 
       lc.Eliminar(1);
       Console.WriteLine(lc.ToString());
+
+      string fecha =DateTime.Now.ToString("yyyyMMdd_hhmmss");
+
+      lc.Guardar("ListaCircular"+fecha);
       Console.ReadKey();
     }
   }

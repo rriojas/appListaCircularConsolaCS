@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using System.IO;
 
 namespace appListaCircularConsolaCS
 {
@@ -102,7 +100,24 @@ namespace appListaCircularConsolaCS
       }    
     }
 
-
+    public void Guardar(string nombreArchivo)
+    {
+      Nodo h = head;
+      if (head == null)
+      {
+        return;
+      }
+      string path = @"d:\"+ nombreArchivo+".txt";
+      using (StreamWriter sw = File.CreateText(path))
+      {
+        do
+        {
+          sw.WriteLine(h.Numero + " - " + h.Nombre + "\n ");
+          h = h.Siguiente;
+        } while (h != head);
+      }
+      return;
+    }
 
     public override string ToString()
     {
