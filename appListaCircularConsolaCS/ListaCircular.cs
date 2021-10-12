@@ -1,5 +1,4 @@
 ﻿using System;
-
 using System.IO;
 
 namespace appListaCircularConsolaCS
@@ -107,18 +106,37 @@ namespace appListaCircularConsolaCS
       {
         return;
       }
+      nombreArchivo = "testListaCircular";
       string path = @"d:\"+ nombreArchivo+".txt";
       using (StreamWriter sw = File.CreateText(path))
       {
         do
         {
-          sw.WriteLine(h.Numero + " - " + h.Nombre + "\n ");
+          sw.WriteLine(h.Numero + "-" + h.Nombre);
           h = h.Siguiente;
         } while (h != head);
       }
       return;
     }
+    public void Cargar(string nombreArchivo)
+    {
+      nombreArchivo = "testListaCircular";
+      string[] lineas= File.ReadAllLines(@"d:\" + nombreArchivo + ".txt");
+      foreach (string linea in lineas)
+      {
+        if (linea.Length == 0)
+        {
+          continue;
+        }
+        string[] datos = linea.Split('-');
+        int numero = int.Parse( datos[0]);
+        string nombre = datos[1];
+        Nodo n = new Nodo(numero, nombre);
+        Agregar(n);
+      }
 
+
+    }
     public override string ToString()
     {
       string lista = "Nodos:\n ";
